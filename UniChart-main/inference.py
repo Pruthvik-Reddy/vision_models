@@ -2,7 +2,7 @@ from transformers import DonutProcessor, VisionEncoderDecoderModel
 from PIL import Image
 import torch, os, re
 
-torch.hub.download_url_to_file('https://raw.githubusercontent.com/vis-nlp/ChartQA/main/ChartQA%20Dataset/val/png/multi_col_1229.png', 'chart_example_1.png')
+#torch.hub.download_url_to_file('https://raw.githubusercontent.com/vis-nlp/ChartQA/main/ChartQA%20Dataset/val/png/multi_col_1229.png', 'chart_example_1.png')
 
 model_name = "ahmed-masry/unichart-chartqa-960"
 image_path = "./content/chart_example_1.png"
