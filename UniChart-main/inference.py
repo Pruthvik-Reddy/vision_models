@@ -33,13 +33,9 @@ for image_path in png_files:
 
 
     input_prompts=[
-        "<chartqa> Explain the Graph <s_answer>",
-        "<chartqa> Explain the Chart <s_answer>",
         "<opencqa> Explain the Graph <s_answer>",
         "<opencqa> Explain the Chart <s_answer>",
         "<summarize_chart> <s_answer>",
-        "<summarize_chart> Explain the Graph <s_answer>",
-        "<summarize_chart> Explain the Chart <s_answer>",
         
     ]
     
@@ -68,7 +64,9 @@ for image_path in png_files:
             return_dict_in_generate=True,
         )
         sequence = processor.batch_decode(outputs.sequences)[0]
-        print(image_path)
+        #print(image_path)
+        path_segments=image_path.split("/")
+        print(path_segments[2]+path_segments[3])
         print(sequence)
 
         #sequence = sequence.replace(processor.tokenizer.eos_token, "").replace(processor.tokenizer.pad_token, "")
