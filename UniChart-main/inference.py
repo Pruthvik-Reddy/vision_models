@@ -29,7 +29,7 @@ for filename in os.listdir(path4):
     if filename.endswith('.png'):
         png_files.append(path4+filename)
 
-for image_path in images_paths:
+for image_path in png_files:
 
 
     #image_path = "./content/chart_example_1.png"
