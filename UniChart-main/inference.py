@@ -33,7 +33,7 @@ for image_path in png_files:
 
 
     #image_path = "./content/chart_example_1.png"
-    input_prompt = "<summarize_chart> Describe the image <s_answer>"
+    input_prompt = "<summarize_chart> Summarize <s_answer>"
 
     model = VisionEncoderDecoderModel.from_pretrained(model_name)
     processor = DonutProcessor.from_pretrained(model_name)
