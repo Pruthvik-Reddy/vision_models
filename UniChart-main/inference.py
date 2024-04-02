@@ -31,5 +31,6 @@ outputs = model.generate(
 )
 sequence = processor.batch_decode(outputs.sequences)[0]
 sequence = sequence.replace(processor.tokenizer.eos_token, "").replace(processor.tokenizer.pad_token, "")
+print(sequence)
 sequence = sequence.split("<s_answer>")[1].strip()
 print(sequence)
