@@ -60,7 +60,7 @@ for image_path in png_files:
     print(image_path)
     print(sequence)
 
-    sequence = sequence.replace(processor.tokenizer.eos_token, "").replace(processor.tokenizer.pad_token, "")
+    #sequence = sequence.replace(processor.tokenizer.eos_token, "").replace(processor.tokenizer.pad_token, "")
     #print(sequence)
-    sequence = sequence.split("<s_answer>")[1].strip()
+    #sequence = sequence.split("<s_answer>")[1].strip()
     #print(sequence)
