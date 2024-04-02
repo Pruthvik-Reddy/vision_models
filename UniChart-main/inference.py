@@ -1,7 +1,7 @@
 from transformers import DonutProcessor, VisionEncoderDecoderModel
 from PIL import Image
 import torch, os, re
-
+import pandas as pd
 #torch.hub.download_url_to_file('https://raw.githubusercontent.com/vis-nlp/ChartQA/main/ChartQA%20Dataset/val/png/multi_col_1229.png', 'chart_example_1.png')
 
 model_name = "ahmed-masry/unichart-chartqa-960"
@@ -10,6 +10,11 @@ path1="../images_data/AD-Average/"
 path2="../images_data/AD-features/"
 path3="../images_data/AD-PCA/"
 path4="../images_data/AD-sampling/"
+
+
+file_names=[]
+prompts=[]
+responses=[]
 
 png_files=[]
 for filename in os.listdir(path1):
@@ -66,10 +71,16 @@ for image_path in png_files:
         sequence = processor.batch_decode(outputs.sequences)[0]
         #print(image_path)
         path_segments=image_path.split("/")
-        print(path_segments[2]+path_segments[3])
-        print(sequence)
-
+        #print(path_segments[2]+path_segments[3])
+        #print(sequence)
+        file_names.append(path_segments[2]+path_segments[3])
+        prompts.append(input_prompt)
+        responses.append(sequence)
         #sequence = sequence.replace(processor.tokenizer.eos_token, "").replace(processor.tokenizer.pad_token, "")
         #print(sequence)
         #sequence = sequence.split("<s_answer>")[1].strip()
         #print(sequence)
+
+data=[file_names,prompts,responses]
+df = pd.DataFrame(data)
+df.to_excel("UniChart_responses.xlsx", index=False) 
