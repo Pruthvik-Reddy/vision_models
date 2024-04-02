@@ -20,10 +20,10 @@ def main():
   # Instantiate the parser
   parser = argparse.ArgumentParser(description='Train Chart Transformer')
   parser.add_argument('--data-path', type=str, default = "ahmed-masry/chartqa_without_images", help='Path to the data file')
-  parser.add_argument('--train-images', type=str, default='/content/ChartQA/ChartQA Dataset/train/png/', help='Path to the training images')
-  parser.add_argument('--valid-images', type=str, default='/content/ChartQA/ChartQA Dataset/val/png', help='Path to the validation images')
+  parser.add_argument('--train-images', type=str, default='./content/ChartQA/ChartQA Dataset/train/png/', help='Path to the training images')
+  parser.add_argument('--valid-images', type=str, default='./content/ChartQA/ChartQA Dataset/val/png', help='Path to the validation images')
 
-  parser.add_argument('--output-dir', type=str, default="/content/output_data", help='Path to the output directory for saving the checkpoints')
+  parser.add_argument('--output-dir', type=str, default="./content/output_data", help='Path to the output directory for saving the checkpoints')
   parser.add_argument('--max-steps', type=int, default = 1000, help='Max number of iterations')
   parser.add_argument('--batch-size', type=int, default=2, help='Batch Size for the model')
   parser.add_argument('--valid-batch-size', type=int, default=2, help='Valid Batch Size for the model')
