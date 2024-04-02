@@ -6,7 +6,7 @@ torch.hub.download_url_to_file('https://raw.githubusercontent.com/vis-nlp/ChartQ
 
 model_name = "ahmed-masry/unichart-chartqa-960"
 image_path = "./content/chart_example_1.png"
-input_prompt = "<chartqa> Describe the image? <s_answer>"
+input_prompt = "<chartqa> Describe the image <s_answer>"
 
 model = VisionEncoderDecoderModel.from_pretrained(model_name)
 processor = DonutProcessor.from_pretrained(model_name)
