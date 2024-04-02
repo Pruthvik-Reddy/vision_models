@@ -30,6 +30,7 @@ outputs = model.generate(
     return_dict_in_generate=True,
 )
 sequence = processor.batch_decode(outputs.sequences)[0]
+print(sequence)
 sequence = sequence.replace(processor.tokenizer.eos_token, "").replace(processor.tokenizer.pad_token, "")
 print(sequence)
 sequence = sequence.split("<s_answer>")[1].strip()
